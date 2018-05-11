@@ -1,12 +1,4 @@
 
-BEGIN
-nation
-nation.tbl
-n_nationkey Int
-n_name String
-n_regionkey Int
-n_comment String
-END
 
 BEGIN
 part
@@ -105,10 +97,29 @@ END
 
 
 
+
+
+
 BEGIN
 region
 region.tbl
 r_regionkey Int
 r_name String
 r_comment String
+END
+
+
+
+
+
+
+
+
+BEGIN
+nation
+nation.tbl
+n_nationkey Int
+n_name String
+n_regionkey Int
+n_comment String
 END

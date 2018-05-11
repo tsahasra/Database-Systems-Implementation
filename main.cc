@@ -459,8 +459,26 @@ void PrintQueryResult(RelOpNode *qhead) {
 	//cout<< " End time : " << ctime(&endtime) << endl;
 }
 
+bool checkIfTablesExist(struct TableList *tables) {
+	
+	while(tables != NULL){
+		if(!checkIfSchemaPresent(tables->tableName))
+			return false;
+		tables = tables->next;
+	}
+
+	return true;
+}
+
 
 void PrintOrExecuteQueryTree(Statistics &stat , int& otype , char *& ofname){
+
+	if(!checkIfTablesExist(tables)) {
+		cout<< endl;
+		cout<<" One or more table(s) do not exist" << endl;
+		cout << endl;
+		return;
+	}
 
 	initializeQueryPlan(stat);
 
